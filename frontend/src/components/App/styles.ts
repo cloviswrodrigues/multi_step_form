@@ -10,10 +10,12 @@ export const Main = styled.main`
 `
 
 export const Container = styled.div`
+  display: flex;
+  gap: 10rem;
   width: 100%;
   height: 100%;
   max-width: 120rem;
-  max-height: 50rem;
+  max-height: 59.8rem;
   margin: 0 auto;
   background-color: #ffffff;
   border-radius: 1.5rem;
@@ -21,9 +23,14 @@ export const Container = styled.div`
 `
 
 export const Navigation = styled.nav`
-  background: url('../../../assets/images/bg-sidebar-desktop.svg');
+  background: url('../../../assets/images/bg-sidebar-desktop.svg') no-repeat;
+  height: 100%;
+  padding: 3rem;
+  width: 274px;
 `
 
 export const Content = styled.div`
   background-color: yellow;
+  flex: 1;
+  padding: 3rem 0 2rem;
 `
