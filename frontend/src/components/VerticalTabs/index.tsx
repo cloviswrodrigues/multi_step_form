@@ -1,14 +1,15 @@
 import Tab from "../Tab"
+import { typeTab } from "../../types/tab"
 
 type VerticalTabsProps = {
-  tabs: string[]
+  tabs: typeTab[]
 }
 
 const VerticalTabs = ({ tabs }: VerticalTabsProps) => {
   return (
     <nav>
       <ul>
-        {tabs.map((tab: string, index: number) => <Tab index={index + 1} title={tab} />)}
+        {tabs.map((tab: typeTab, index: number) => <Tab index={index + 1} title={tab.title} active={tab.active} />)}
       </ul>
     </nav>
   )

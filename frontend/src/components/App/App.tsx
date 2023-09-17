@@ -1,12 +1,24 @@
+import { ThemeProvider } from 'styled-components';
+
 import GlobalStyle from '../../assets/styles/global'
-import VerticalTabs from '../VerticalTabs'
+import theme from '../../assets/styles/theme';
+import VerticalTabs from '../VerticalTabs';
+import { typeTab } from '../../types/tab';
+
 import { Main, Container, Content, Navigation } from './styles'
 
+const tabsAvailable = [
+  { title: 'YOUR INFO', active: false },
+  { title: 'SELECT PLAN', active: false },
+  { title: 'ADD-ONS', active: false },
+  { title: 'SUMMARY', active: false },
+]
+
 function App() {
-  const tabs = ['YOUR INFO', 'SELECT PLAN', 'ADD-ONS', 'SUMMARY'];
+  const tabs: typeTab[] = tabsAvailable;
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Main>
         <Container>
@@ -19,7 +31,7 @@ function App() {
           </Content>
         </Container>
       </Main>
-    </>
+    </ThemeProvider>
   )
 }
 

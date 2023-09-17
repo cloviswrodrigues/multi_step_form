@@ -6,7 +6,7 @@ export const Main = styled.main`
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: #f0f6ff;;
+  background-color: ${({ theme }) => theme.colors.grayMagnolia};
 `
 
 export const Container = styled.div`
@@ -17,7 +17,7 @@ export const Container = styled.div`
   max-width: 120rem;
   max-height: 59.8rem;
   margin: 0 auto;
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.colors.white};
   border-radius: 1.5rem;
   padding: 1.5rem;
 `
