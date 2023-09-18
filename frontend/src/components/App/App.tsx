@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyle from '../../assets/styles/global'
 import theme from '../../assets/styles/theme';
 import VerticalTabs from '../VerticalTabs';
+import FormYourInfo from '../Forms/FormYourInfo';
 import { typeTab } from '../../types/tab';
 
 import { Main, Container, Content, Navigation } from './styles'
@@ -26,8 +27,7 @@ function App() {
             <VerticalTabs tabs={tabs} />
           </Navigation>
           <Content>
-            <h1>Personal info</h1>
-            <p>Please provide your name, email address, and phone number.</p>
+            <FormYourInfo />
           </Content>
         </Container>
       </Main>
