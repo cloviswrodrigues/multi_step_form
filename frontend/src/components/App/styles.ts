@@ -32,4 +32,5 @@ export const Navigation = styled.nav`
 export const Content = styled.div`
   flex: 1;
   padding: 3rem 0 2rem;
+  max-width: 65rem;
 `
