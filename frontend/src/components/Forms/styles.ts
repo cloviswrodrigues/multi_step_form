@@ -14,4 +14,9 @@ export const Paragraph = styled.p`
 
 export const InputGroup = styled.div`
   margin-top: 4rem;
+
+  button {
+    margin-top: 6rem;
+    float: right;
+  }
 `
