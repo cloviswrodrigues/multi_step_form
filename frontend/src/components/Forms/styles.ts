@@ -12,7 +12,6 @@ export const Paragraph = styled.p`
   color: ${({ theme }) => theme.colors.gray};
 `
 
-export const Form = styled.form`
+export const InputGroup = styled.div`
   margin-top: 4rem;
 `
-
