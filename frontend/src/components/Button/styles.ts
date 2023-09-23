@@ -8,4 +8,9 @@ export const ButtonContainer = styled.button`
   border-radius: .8rem;
   border: none;
   background-color: ${({ theme }) => theme.colors.blueMarine};
+  cursor: pointer;
+
+  &:hover {
+    opacity: .9;
+  }
 `
