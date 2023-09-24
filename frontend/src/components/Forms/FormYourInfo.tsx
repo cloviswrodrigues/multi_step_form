@@ -1,12 +1,14 @@
 import Button from "../Button"
 import Input from "../Input"
-import { Title, Paragraph, InputGroup } from "./styles"
+import Title from "../Title"
+import SubTitle from "../Subtitle"
+import { InputGroup } from "./styles"
 
 const FormYourInfo = () => {
   return (
     <div>
       <Title>Personal Info</Title>
-      <Paragraph>Please provide your name, email address, and phone number.</Paragraph>
+      <SubTitle>Please provide your name, email address, and phone number.</SubTitle>
       <InputGroup>
         <Input label="Name" />
         <Input label="Email Adress" />
