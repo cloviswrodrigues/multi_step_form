@@ -17,4 +17,9 @@ export default createGlobalStyle`
   li {
     list-style: none;
   }
+
+  button {
+    border: none;
+    background: none;
+  }
 `;

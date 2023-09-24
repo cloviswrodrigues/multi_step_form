@@ -7,6 +7,7 @@ import FormYourInfo from '../Forms/FormYourInfo';
 import { typeTab } from '../../types/tab';
 
 import { Main, Container, Content, Navigation } from './styles'
+import SelectPlan from '../Forms/SelectPlan';
 
 const tabsAvailable = [
   { title: 'YOUR INFO', active: false },
@@ -27,7 +28,8 @@ function App() {
             <VerticalTabs tabs={tabs} />
           </Navigation>
           <Content>
-            <FormYourInfo />
+            {/* <FormYourInfo /> */}
+            <SelectPlan />
           </Content>
         </Container>
       </Main>
