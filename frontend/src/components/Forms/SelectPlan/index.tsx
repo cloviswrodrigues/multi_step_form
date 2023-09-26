@@ -1,17 +1,49 @@
 import Button from "../../Button"
-import Input from "../../Input"
 import Title from "../../Title"
 import SubTitle from "../../Subtitle"
-import { Container, Fields, Navigation } from "./styles"
+import { Container, Fields, RadioButtonsGroup, LabelRadio, Navigation } from "./styles"
 import ButtonBack from "../../ButtonBack"
+import InputRadio from "../../InputRadio"
 
 const SelectPlan = () => {
+
   return (
     <Container>
       <Title>Select your plan</Title>
       <SubTitle>You have the option of monthly or yearly billing.</SubTitle>
       <Fields>
-
+        <RadioButtonsGroup>
+          <InputRadio img={'../../../assets/images/icon-arcade.svg'}
+            id={'plan-arcade'}
+            name={'plan'}
+          >
+            <LabelRadio>
+              <p>Arcade</p>
+              <span>$90/yr</span>
+              <small>2 months free</small>
+            </LabelRadio>
+          </InputRadio>
+          <InputRadio img={'../../../assets/images/icon-advanced.svg'}
+            id={'plan-advanced'}
+            name={'plan'}
+          >
+            <LabelRadio>
+              <p>Advanced</p>
+              <span>$120/yr</span>
+              <small>2 months free</small>
+            </LabelRadio>
+          </InputRadio>
+          <InputRadio img={'../../../assets/images/icon-pro.svg'}
+            id={'plan-pro'}
+            name={'plan'}
+          >
+            <LabelRadio>
+              <p>Prop</p>
+              <span>$150/yr</span>
+              <small>2 months free</small>
+            </LabelRadio>
+          </InputRadio>
+        </RadioButtonsGroup>
         <Navigation>
           <ButtonBack>Go Back</ButtonBack>
           <Button>Next Step</Button>

@@ -14,7 +14,7 @@ export const Container = styled.div`
   gap: 10rem;
   width: 100%;
   height: 100%;
-  max-width: 120rem;
+  max-width: 94rem;
   max-height: 59.8rem;
   margin: 0 auto;
   background-color: ${({ theme }) => theme.colors.white};
@@ -31,6 +31,6 @@ export const Navigation = styled.nav`
 
 export const Content = styled.div`
   flex: 1;
-  padding: 3rem 0 2rem;
+  padding: 3rem 8rem 2rem 0;
   max-width: 65rem;
 `
