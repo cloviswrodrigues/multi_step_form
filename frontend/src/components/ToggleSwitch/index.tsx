@@ -1,13 +1,13 @@
-import { Container, Slider } from './styles';
+import { Container, Label } from './styles';
 
 const ToggleSwitch = () => {
   return (
     <Container>
       <span>Monthly</span>
-      <Slider>
+      <Label>
         <input type="checkbox" />
         <span></span>
-      </Slider>
+      </Label>
       <span>Yearly</span>
     </Container>
   )

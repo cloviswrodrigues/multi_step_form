@@ -20,13 +20,15 @@ export const Container = styled.div`
 
 `
 
-export const Slider = styled.label`
-  position: relative;
-
+export const Label = styled.label`
   input {
     visibility: hidden;
     width: 0;
     height: 0;
+  }
+
+  input:checked + span::before {
+    transform: translateX(18px);
   }
 
   span {
@@ -40,13 +42,11 @@ export const Slider = styled.label`
     &::before {
       content: '';
       display: inline-block;
-      width: 1.5rem;
-      height: 1.5rem;
+      width: 1.4rem;
+      height: 1.4rem;
       border-radius: 50%;
       background-color: ${({ theme }) => theme.colors.white};
-      position: absolute;
-      top: 3px;
-      left: 3px;
+      transition: all .5s;
     }
   }
 
