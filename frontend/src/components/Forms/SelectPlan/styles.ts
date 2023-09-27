@@ -36,6 +36,10 @@ export const LabelRadio = styled.div`
   }
 `
 
+export const CheckBoxGroup = styled.div`
+  margin-top: 3rem;
+`
+
 export const Navigation = styled.nav`
   position: absolute;
   bottom: 0;
