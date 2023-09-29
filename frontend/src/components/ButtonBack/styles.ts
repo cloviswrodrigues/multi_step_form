@@ -4,4 +4,9 @@ export const ButtonContainer = styled.button`
   font-size: 1.6rem;
   font-weight: 500;
   color: ${({ theme }) => theme.colors.gray};
+  cursor: pointer;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.blueMarine};
+  }
 `
