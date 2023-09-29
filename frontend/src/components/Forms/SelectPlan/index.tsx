@@ -1,8 +1,6 @@
-import Button from "../../Button"
 import Title from "../../Title"
 import SubTitle from "../../Subtitle"
-import { Container, Fields, RadioButtonsGroup, LabelRadio, CheckBoxGroup, Navigation } from "./styles"
-import ButtonBack from "../../ButtonBack"
+import { Container, Fields, RadioButtonsGroup, LabelRadio, CheckBoxGroup } from "./styles"
 import InputRadio from "../../InputRadio"
 import ToggleSwitch from "../../ToggleSwitch"
 
@@ -48,10 +46,6 @@ const SelectPlan = () => {
         <CheckBoxGroup>
           <ToggleSwitch />
         </CheckBoxGroup>
-        <Navigation>
-          <ButtonBack>Go Back</ButtonBack>
-          <Button>Next Step</Button>
-        </Navigation>
       </Fields>
     </Container>
   )

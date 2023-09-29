@@ -10,8 +10,12 @@ export const Main = styled.main`
 `
 
 export const Container = styled.div`
-  display: flex;
-  gap: 10rem;
+  display: grid;
+  grid-template-areas:
+    'pagination content'
+    'pagination navigation';
+  column-gap: 10rem;
+  grid-template-rows: auto 8rem;
   width: 100%;
   height: 100%;
   max-width: 94rem;
@@ -20,9 +24,11 @@ export const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 1.5rem;
   padding: 1.5rem;
+  padding-right: 8rem;
 `
 
-export const Navigation = styled.nav`
+export const Pagination = styled.div`
+  grid-area: pagination;
   background: url('../../../assets/images/bg-sidebar-desktop.svg') no-repeat;
   height: 100%;
   padding: 3rem;
@@ -30,7 +36,15 @@ export const Navigation = styled.nav`
 `
 
 export const Content = styled.div`
+  grid-area: content;
   flex: 1;
-  padding: 3rem 8rem 2rem 0;
+  padding: 3rem 0 2rem 0;
   max-width: 65rem;
+`
+export const Navigation = styled.nav`
+  grid-area: navigation;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `

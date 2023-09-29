@@ -3,11 +3,13 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyle from '../../assets/styles/global'
 import theme from '../../assets/styles/theme';
 import VerticalTabs from '../VerticalTabs';
+import ButtonBack from '../ButtonBack';
+import Button from '../Button';
 import FormYourInfo from '../Forms/FormYourInfo';
+import SelectPlan from '../Forms/SelectPlan';
 import { typeTab } from '../../types/tab';
 
-import { Main, Container, Content, Navigation } from './styles'
-import SelectPlan from '../Forms/SelectPlan';
+import { Main, Container, Content, Pagination, Navigation } from './styles'
 
 const tabsAvailable = [
   { title: 'YOUR INFO', active: false },
@@ -24,13 +26,17 @@ function App() {
       <GlobalStyle />
       <Main>
         <Container>
-          <Navigation>
+          <Pagination>
             <VerticalTabs tabs={tabs} />
-          </Navigation>
+          </Pagination>
           <Content>
             {/* <FormYourInfo /> */}
             <SelectPlan />
           </Content>
+          <Navigation>
+            <ButtonBack>Go Back</ButtonBack>
+            <Button>Next Step</Button>
+          </Navigation>
         </Container>
       </Main>
     </ThemeProvider>
