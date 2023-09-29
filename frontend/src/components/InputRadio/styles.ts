@@ -13,6 +13,11 @@ export const CardOption = styled.div`
     padding: 2rem 1.5rem;
     border: 1px solid ${({ theme }) => theme.colors.grayLight};
     border-radius: .8rem;
+    cursor: pointer;
+
+    &:hover {
+      border-color: ${({ theme }) => theme.colors.bluePurplish};
+    }
   }
 
   input:checked + label {
