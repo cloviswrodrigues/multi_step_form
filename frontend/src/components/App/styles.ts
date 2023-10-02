@@ -16,6 +16,7 @@ export const Container = styled.div`
     'pagination navigation';
   column-gap: 10rem;
   grid-template-rows: auto 8rem;
+  grid-template-columns: 27.4rem auto;
   width: 100%;
   height: 100%;
   max-width: 94rem;
