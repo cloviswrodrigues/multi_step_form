@@ -9,7 +9,7 @@ const PickAddOns = () => {
       <Title>Pick add-ons</Title>
       <SubTitle>Add-ons help echance your gaming experience.</SubTitle>
       <Fields>
-        <InputCheckBox>
+        <InputCheckBox id="1" name="addons">
           <DescriptionCheckBox>
             <div>
               <p>Online Service</p>
