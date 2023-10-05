@@ -6,6 +6,10 @@ export const Container = styled.div`
   gap: 2.5rem;
   align-items: center;
 
+  & + & {
+    margin: 1.5rem 0;
+  }
+
   label {
     display: flex;
     align-items: center;
@@ -38,7 +42,9 @@ export const Container = styled.div`
     border-color: ${({ theme }) => theme.colors.bluePurplish};
 
     & > span {
-      background: ${({ theme }) => theme.colors.bluePurplish};
+
+      background: url('../../../assets/images/icon-checkmark.svg') no-repeat center,
+              ${({ theme }) => theme.colors.bluePurplish};
       border-color: ${({ theme }) => theme.colors.bluePurplish};
     }
   }
