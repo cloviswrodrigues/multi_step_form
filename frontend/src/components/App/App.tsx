@@ -7,10 +7,11 @@ import ButtonBack from '../ButtonBack';
 import Button from '../Button';
 import FormYourInfo from '../Forms/FormYourInfo';
 import SelectPlan from '../Forms/SelectPlan';
+import PickAddOns from '../Forms/PickAddOns';
+import Summary from '../Forms/Summary';
 import { typeTab } from '../../types/tab';
 
 import { Main, Container, Content, Pagination, Navigation } from './styles'
-import PickAddOns from '../Forms/PickAddOns';
 
 const tabsAvailable = [
   { title: 'YOUR INFO', active: false },
@@ -33,7 +34,8 @@ function App() {
           <Content>
             {/* <FormYourInfo /> */}
             {/* <SelectPlan /> */}
-            <PickAddOns />
+            {/* <PickAddOns /> */}
+            <Summary />
           </Content>
           <Navigation>
             <ButtonBack>Go Back</ButtonBack>
