@@ -13,7 +13,6 @@ const FormYourInfo = () => {
         <Input label="Name" />
         <Input label="Email Adress" />
         <Input label="Phone Number" />
-        <Button>Next Step</Button>
       </InputGroup>
     </div>
   )
