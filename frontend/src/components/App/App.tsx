@@ -2,7 +2,7 @@ import { ThemeProvider } from 'styled-components';
 
 import GlobalStyle from '../../assets/styles/global'
 import theme from '../../assets/styles/theme';
-import VerticalTabs from '../VerticalTabs';
+import Tabs from '../Tabs';
 import ButtonBack from '../ButtonBack';
 import Button from '../Button';
 import FormYourInfo from '../Forms/FormYourInfo';
@@ -29,13 +29,13 @@ function App() {
       <Main>
         <Container>
           <Pagination>
-            <VerticalTabs tabs={tabs} />
+            <Tabs tabs={tabs} />
           </Pagination>
           <Content>
-            {/* <FormYourInfo /> */}
+            <FormYourInfo />
             {/* <SelectPlan /> */}
             {/* <PickAddOns /> */}
-            <Summary />
+            {/* <Summary /> */}
           </Content>
           <Navigation>
             <ButtonBack>Go Back</ButtonBack>

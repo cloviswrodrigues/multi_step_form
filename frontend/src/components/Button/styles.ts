@@ -13,4 +13,8 @@ export const ButtonContainer = styled.button`
   &:hover {
     opacity: .9;
   }
+
+  @media screen and (max-width: 1000px) {
+    border-radius: .4rem;
+  }
 `

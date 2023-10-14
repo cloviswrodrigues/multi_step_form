@@ -25,4 +25,17 @@ export const Container = styled.div`
       border-color: ${({ theme }) => theme.colors.bluePurplish};
     }
   }
+
+  @media screen and (max-width: 1000px) {
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+
+    label {
+      margin-bottom: .5rem;
+    }
+
+    input {
+      border-radius: .4rem;
+    }
+  }
 `

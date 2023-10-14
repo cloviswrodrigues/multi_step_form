@@ -1,8 +1,18 @@
 import styled, { css } from "styled-components";
 
-export const Container = styled.li`
+export const Container = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  margin-bottom: 2.5rem;
+
+  @media screen and (max-width: 1000px) {
+    flex-direction: row;
+    justify-content: center;
+  }
+`
+
+export const TabItem = styled.div`
+  display: flex;
   margin-bottom: 2.5rem;
 `
 
@@ -44,10 +54,18 @@ export const Title = styled.p`
   font-size: 1.4rem;
   color: ${({ theme }) => theme.colors.gray};
   margin-bottom: .2rem;
+
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
 `
 
 export const SubTitle = styled.p`
   font-size: 1.6rem;
   font-weight: 700;
   color: ${({ theme }) => theme.colors.white};
+
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
 `

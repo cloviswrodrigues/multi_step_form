@@ -7,6 +7,8 @@ export const Main = styled.main`
   width: 100%;
   height: 100%;
   background-color: ${({ theme }) => theme.colors.grayMagnolia};
+
+
 `
 
 export const Container = styled.div`
@@ -26,6 +28,20 @@ export const Container = styled.div`
   border-radius: 1.5rem;
   padding: 1.5rem;
   padding-right: 8rem;
+
+  @media screen and (max-width: 1000px) {
+    grid-template-areas:
+    'pagination'
+    'content'
+    'navigation';
+
+    grid-template-rows: 172px auto 80px;
+    grid-template-columns: auto;
+    max-width: inherit;
+    max-height: inherit;
+    padding: 0;
+    background-color: ${({ theme }) => theme.colors.grayMagnolia};
+  }
 `
 
 export const Pagination = styled.div`
@@ -34,6 +50,12 @@ export const Pagination = styled.div`
   height: 100%;
   padding: 3rem;
   width: 274px;
+
+  @media screen and (max-width: 1000px) {
+    background: url('../../../assets/images/bg-sidebar-mobile.svg') no-repeat;
+    background-size: cover;
+    width: 100%;
+  }
 `
 
 export const Content = styled.div`
@@ -41,6 +63,16 @@ export const Content = styled.div`
   flex: 1;
   padding: 3rem 0 2rem 0;
   max-width: 65rem;
+
+  @media screen and (max-width: 1000px) {
+    width: 90%;
+    margin: 0 auto;
+    background-color: ${({ theme }) => theme.colors.white};
+    padding: 3rem 2rem;
+    position: relative;
+    top: -7rem;
+    border-radius: 1rem;
+  }
 `
 export const Navigation = styled.nav`
   grid-area: navigation;
@@ -48,4 +80,9 @@ export const Navigation = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media screen and (max-width: 1000px) {
+    background-color: ${({ theme }) => theme.colors.white};
+    padding: 1.5rem;
+  }
 `
