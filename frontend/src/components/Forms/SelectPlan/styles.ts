@@ -6,11 +6,20 @@ export const Container = styled.div`
 
 export const Fields = styled.div`
   margin-top: 4rem;
+
+  @media screen and (max-width: 1000px) {
+    margin-top: 2.5rem;
+  }
 `
 
 export const RadioButtonsGroup = styled.div`
   display: flex;
   gap: 2rem;
+
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
 `
 
 export const LabelRadio = styled.div`
@@ -33,8 +42,18 @@ export const LabelRadio = styled.div`
     color: ${({ theme }) => theme.colors.blueMarine};
     margin-top: .4rem;
   }
+
+  @media screen and (max-width: 1000px) {
+    small {
+      display: inherit;
+    }
+  }
 `
 
 export const CheckBoxGroup = styled.div`
   margin-top: 3rem;
+
+  @media screen and (max-width: 1000px) {
+    margin-top: 2rem;
+  }
 `

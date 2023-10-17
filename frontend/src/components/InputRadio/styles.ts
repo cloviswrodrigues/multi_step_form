@@ -24,6 +24,17 @@ export const CardOption = styled.div`
     border-color: ${({ theme }) => theme.colors.bluePurplish};
     background-color: ${({ theme }) => theme.colors.grayAlabaster};
   }
+
+  @media screen and (max-width: 1000px) {
+    width: 100%;
+    min-height: auto;
+
+    label {
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 1.5rem;
+    }
+  }
 `
 
 export const ImageTop = styled.div`

@@ -32,8 +32,8 @@ function App() {
             <Tabs tabs={tabs} />
           </Pagination>
           <Content>
-            <FormYourInfo />
-            {/* <SelectPlan /> */}
+            {/* <FormYourInfo /> */}
+            <SelectPlan />
             {/* <PickAddOns /> */}
             {/* <Summary /> */}
           </Content>
