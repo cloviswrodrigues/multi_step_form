@@ -24,6 +24,10 @@ export const Container = styled.div`
     &:focus {
       border-color: ${({ theme }) => theme.colors.bluePurplish};
     }
+
+    &::placeholder {
+      color: ${({ theme }) => theme.colors.gray};
+    }
   }
 
   @media screen and (max-width: 1000px) {
