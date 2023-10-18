@@ -72,6 +72,8 @@ export const Content = styled.div`
     position: relative;
     top: -7rem;
     border-radius: 1rem;
+    height: fit-content;
+    box-shadow: 0px 10px 20px -15px rgba(0,0,0,.5);
   }
 `
 export const Navigation = styled.nav`

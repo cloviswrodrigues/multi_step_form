@@ -2,6 +2,10 @@ import styled from "styled-components"
 
 export const Fields = styled.div`
   margin-top: 4rem;
+
+  @media screen and (max-width: 1000px) {
+    margin-top: 2rem;
+  }
 `
 
 export const DescriptionCheckBox = styled.div`
@@ -24,5 +28,19 @@ export const DescriptionCheckBox = styled.div`
   small {
     font-size: 1.4rem;
     color: ${({ theme }) => theme.colors.bluePurplish};
+  }
+
+  @media screen and (max-width: 1000px) {
+    p {
+      font-size: 1.5rem;
+    }
+
+    span {
+      font-size: 1.3rem;
+    }
+
+    small {
+      font-size: 1.2rem;
+    }
   }
 `

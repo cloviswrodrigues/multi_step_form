@@ -48,4 +48,16 @@ export const Container = styled.div`
       border-color: ${({ theme }) => theme.colors.bluePurplish};
     }
   }
+
+  @media screen and (max-width: 1000px) {
+   label {
+    padding: 1.2rem 1.5rem;
+    gap: 1.5rem;
+   }
+
+    & + & {
+      margin: 1.2rem 0;
+    }
+
+  }
 `

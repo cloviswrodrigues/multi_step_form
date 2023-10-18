@@ -33,8 +33,8 @@ function App() {
           </Pagination>
           <Content>
             {/* <FormYourInfo /> */}
-            <SelectPlan />
-            {/* <PickAddOns /> */}
+            {/* <SelectPlan /> */}
+            <PickAddOns />
             {/* <Summary /> */}
           </Content>
           <Navigation>
