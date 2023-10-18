@@ -1,9 +1,5 @@
 import styled from "styled-components"
 
-export const Container = styled.div`
-
-`
-
 export const CheckList = styled.div`
   margin-top: 4rem;
   background-color: ${({ theme }) => theme.colors.grayAlabaster};
@@ -13,6 +9,10 @@ export const CheckList = styled.div`
   hr {
     border: 1px solid ${({ theme }) => theme.colors.grayLight};
     opacity: .5;
+  }
+
+  @media screen and (max-width: 1000px) {
+    margin-top: 2rem;
   }
 `
 
@@ -69,7 +69,7 @@ export const CheckServices = styled.div`
 `
 
 export const Total = styled.div`
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   padding: 0 2rem;
   display: flex;
   justify-content: space-between;
@@ -83,6 +83,13 @@ export const Total = styled.div`
     font-size: 1.8rem;
     font-weight: 700;
     color: ${({ theme }) => theme.colors.bluePurplish};
+  }
+
+  @media screen and (max-width: 1000px) {
+
+    span {
+      font-size: 1.6rem;
+    }
   }
 
 `

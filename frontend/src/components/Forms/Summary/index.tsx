@@ -1,12 +1,12 @@
 import Title from "../../Title"
 import SubTitle from "../../Subtitle"
-import { Container, CheckList, PlanCheck, CheckServices, Total } from "./styles"
+import { CheckList, PlanCheck, CheckServices, Total } from "./styles"
 
 
 const Summary = () => {
 
   return (
-    <Container>
+    <div>
       <Title>Finishing up</Title>
       <SubTitle>Double-check everything looks OK before confirming.</SubTitle>
       <CheckList>
@@ -33,7 +33,7 @@ const Summary = () => {
         <p>Total (per month)</p>
         <span>+$12/mo</span>
       </Total>
-    </Container>
+    </div>
   )
 }
 

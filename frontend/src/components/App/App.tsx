@@ -34,8 +34,8 @@ function App() {
           <Content>
             {/* <FormYourInfo /> */}
             {/* <SelectPlan /> */}
-            <PickAddOns />
-            {/* <Summary /> */}
+            {/* <PickAddOns /> */}
+            <Summary />
           </Content>
           <Navigation>
             <ButtonBack>Go Back</ButtonBack>
