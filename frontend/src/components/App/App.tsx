@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+
 import { ThemeProvider } from 'styled-components';
 
 import GlobalStyle from '../../assets/styles/global'
@@ -13,7 +15,7 @@ import { typeTab } from '../../types/tab';
 
 import { Main, Container, Content, Pagination, Navigation } from './styles'
 
-const tabsAvailable = [
+const tabsAvailable: typeTab[] = [
   { title: 'YOUR INFO', active: false },
   { title: 'SELECT PLAN', active: false },
   { title: 'ADD-ONS', active: false },
@@ -21,7 +23,49 @@ const tabsAvailable = [
 ]
 
 function App() {
-  const tabs: typeTab[] = tabsAvailable;
+  const [tabs, setTabs] = useState(tabsAvailable);
+  const [currentTab, setCurrentTab] = useState(1);
+
+  function updateTab(tab: number) {
+    setTabs
+  }
+
+  function previous() {
+    setCurrentTab(prevState => {
+      const tab = prevState - 1;
+      if (tab <= 0) {
+        return prevState;
+      }
+      return prevState - 1;
+    });
+  }
+
+  function next() {
+    setCurrentTab(prevState => {
+      const tab = prevState + 1;
+      if (tab > tabs.length) {
+        return prevState;
+      }
+      return prevState + 1;
+    });
+  }
+
+  function updateTabNagivation(tab: number) {
+    setTabs(prevState => {
+      prevState.forEach(tab => tab.active = false);
+      const newState: typeTab[] = prevState;
+      const tabFound = prevState[tab - 1];
+      if (tabFound) {
+        tabFound.active = true;
+        newState[tab - 1] = tabFound;
+      }
+      return [...newState]
+    })
+  }
+
+  useEffect(() => {
+    updateTabNagivation(currentTab)
+  }, [currentTab])
 
   return (
     <ThemeProvider theme={theme}>
@@ -31,15 +75,21 @@ function App() {
           <Pagination>
             <Tabs tabs={tabs} />
           </Pagination>
-          <Content>
-            {/* <FormYourInfo /> */}
-            {/* <SelectPlan /> */}
-            {/* <PickAddOns /> */}
+          <Content visible={currentTab == 1 ? "true" : "false"}>
+            <FormYourInfo />
+          </Content>
+          <Content visible={currentTab == 2 ? "true" : "false"}>
+            <SelectPlan />
+          </Content>
+          <Content visible={currentTab == 3 ? "true" : "false"}>
+            <PickAddOns />
+          </Content>
+          <Content visible={currentTab == 4 ? "true" : "false"}>
             <Summary />
           </Content>
           <Navigation>
-            <ButtonBack>Go Back</ButtonBack>
-            <Button>Next Step</Button>
+            <ButtonBack visible={currentTab > 1 ? "true" : "false"} onClick={previous}>Go Back</ButtonBack>
+            <Button onClick={next}>Next Step</Button>
           </Navigation>
         </Container>
       </Main>

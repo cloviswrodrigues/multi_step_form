@@ -11,7 +11,7 @@ const Tab = ({ tabs }: TabProps) => {
     <Container>
       {tabs.map((item, index) => (
         <TabItem key={item.title}>
-          <Rounded active={item.active}>{index + 1}</Rounded>
+          <Rounded active={item.active.toString()}>{index + 1}</Rounded>
           <Step>
             <Title>STEP {index + 1}</Title>
             <SubTitle>{item.title}</SubTitle>

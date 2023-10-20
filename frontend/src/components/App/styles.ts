@@ -58,7 +58,8 @@ export const Pagination = styled.div`
   }
 `
 
-export const Content = styled.div`
+export const Content = styled.div<{ visible: string }>`
+  display: ${({ visible }) => visible === "true" ? 'block' : 'none'};
   grid-area: content;
   flex: 1;
   padding: 3rem 0 2rem 0;
@@ -76,12 +77,21 @@ export const Content = styled.div`
     box-shadow: 0px 10px 20px -15px rgba(0,0,0,.5);
   }
 `
+
+export const ContentForm = styled.div<{ visible: boolean }>`
+
+`
+
 export const Navigation = styled.nav`
   grid-area: navigation;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  button {
+    justify-self: flex-end;
+  }
 
   @media screen and (max-width: 1000px) {
     background-color: ${({ theme }) => theme.colors.white};
