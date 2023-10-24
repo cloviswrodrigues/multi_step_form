@@ -11,7 +11,7 @@ export const ButtonContainer = styled.button`
   cursor: pointer;
 
   &:hover {
-    opacity: .9;
+    opacity: ${({ type }) => type == 'submit' ? '.5' : '.9'};
   }
 
   @media screen and (max-width: 1000px) {

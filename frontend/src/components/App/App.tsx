@@ -89,7 +89,8 @@ function App() {
           </Content>
           <Navigation>
             <ButtonBack visible={currentTab > 1 ? "true" : "false"} onClick={previous}>Go Back</ButtonBack>
-            <Button onClick={next}>Next Step</Button>
+            {currentTab == tabs.length ? <Button type='submit' onClick={next}>Confirm</Button>
+              : <Button onClick={next}>Next Step</Button>}
           </Navigation>
         </Container>
       </Main>

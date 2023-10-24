@@ -1,10 +1,18 @@
+import { useTheme } from 'styled-components'
+
 import { ButtonContainer } from "./styles"
 
 type ButtonProps = React.ComponentProps<'button'>
 
 const Button = ({ children, ...props }: ButtonProps) => {
+  const theme = useTheme();
+
+  console.log('@theme ==>', { theme });
+
+  const color = props.type === 'submit' ? theme.colors.bluePurplish : theme.colors.blueMarine;
+
   return (
-    <ButtonContainer {...props}>{children}</ButtonContainer>
+    <ButtonContainer style={{ backgroundColor: color }} {...props}>{children}</ButtonContainer>
   )
 }
 
