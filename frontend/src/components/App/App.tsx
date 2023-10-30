@@ -14,6 +14,7 @@ import Summary from '../Forms/Summary';
 import { typeTab } from '../../types/tab';
 
 import { Main, Container, Content, Pagination, Navigation } from './styles'
+import ThankYou from '../ThankYou';
 
 const tabsAvailable: typeTab[] = [
   { title: 'YOUR INFO', active: false },
@@ -24,7 +25,7 @@ const tabsAvailable: typeTab[] = [
 
 function App() {
   const [tabs, setTabs] = useState(tabsAvailable);
-  const [currentTab, setCurrentTab] = useState(1);
+  const [currentTab, setCurrentTab] = useState(5);
 
   function updateTab(tab: number) {
     setTabs
@@ -86,6 +87,9 @@ function App() {
           </Content>
           <Content visible={currentTab == 4 ? "true" : "false"}>
             <Summary />
+          </Content>
+          <Content visible={currentTab == 5 ? "true" : "false"}>
+            <ThankYou />
           </Content>
           <Navigation>
             <ButtonBack visible={currentTab > 1 ? "true" : "false"} onClick={previous}>Go Back</ButtonBack>
