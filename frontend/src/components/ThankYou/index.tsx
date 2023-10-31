@@ -1,10 +1,15 @@
 import Title from "../Title";
 import SubTitle from "../Subtitle";
 
+import { Container } from './styles';
+
+import IconThankYou from '../../../assets/images/icon-thank-you.svg'
+
 
 const ThankYou = () => {
   return (
-    <div>
+    <Container>
+      <img src={IconThankYou} alt="thank you icon" />
       <Title>Thank you!</Title>
       <SubTitle>
         Thanks for confirming your subscription!
@@ -12,7 +17,7 @@ const ThankYou = () => {
         please feel free to email us at support@loremgaming.com.
 
       </SubTitle>
-    </div>
+    </Container>
   )
 }
 

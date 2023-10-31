@@ -25,11 +25,7 @@ const tabsAvailable: typeTab[] = [
 
 function App() {
   const [tabs, setTabs] = useState(tabsAvailable);
-  const [currentTab, setCurrentTab] = useState(5);
-
-  function updateTab(tab: number) {
-    setTabs
-  }
+  const [currentTab, setCurrentTab] = useState(1);
 
   function previous() {
     setCurrentTab(prevState => {
