@@ -1,20 +1,20 @@
 import { Container, TabItem, Rounded, Step, SubTitle, Title } from "./styles"
 
-import { typeTab } from "../../types/tab"
-
 type TabProps = {
-  tabs: typeTab[],
+  names: string[],
+  indexTabActive: number
 }
 
-const Tab = ({ tabs }: TabProps) => {
+const Tab = ({ names, indexTabActive }: TabProps) => {
+  if (!names) return null
   return (
     <Container>
-      {tabs.map((item, index) => (
-        <TabItem key={item.title}>
-          <Rounded active={item.active.toString()}>{index + 1}</Rounded>
+      {names.map((name, index) => (
+        <TabItem key={name}>
+          <Rounded active={indexTabActive === index}>{index + 1}</Rounded>
           <Step>
             <Title>STEP {index + 1}</Title>
-            <SubTitle>{item.title}</SubTitle>
+            <SubTitle>{name}</SubTitle>
           </Step>
         </TabItem>
       ))}

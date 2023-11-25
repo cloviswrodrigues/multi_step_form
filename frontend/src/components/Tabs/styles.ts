@@ -16,7 +16,7 @@ export const TabItem = styled.div`
   margin-bottom: 2.5rem;
 `
 
-export const Rounded = styled.div<{ active: string }>`
+export const Rounded = styled.div<{ active: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,17 +32,13 @@ export const Rounded = styled.div<{ active: string }>`
   color: ${({ theme }) => theme.colors.white};
 
   ${({ active }) => {
-    switch (active) {
-      case "true":
-        return css`
-        color: ${({ theme }) => theme.colors.blueMarine};
-        background-color: ${({ theme }) => theme.colors.blueLight};
-        border-color: ${({ theme }) => theme.colors.blueLight};
-        `
-      default:
-        return null;
+    if (active) {
+      return css`
+          color: ${({ theme }) => theme.colors.blueMarine};
+          background-color: ${({ theme }) => theme.colors.blueLight};
+          border-color: ${({ theme }) => theme.colors.blueLight};
+          `
     }
-
   }}
 `
 

@@ -29,6 +29,10 @@ export const Container = styled.div`
   padding: 1.5rem;
   padding-right: 8rem;
 
+  form {
+    padding-top: 3rem;
+  }
+
   @media screen and (max-width: 1000px) {
     grid-template-areas:
     'pagination'
@@ -56,30 +60,6 @@ export const Pagination = styled.div`
     background-size: cover;
     width: 100%;
   }
-`
-
-export const Content = styled.div<{ visible: string }>`
-  display: ${({ visible }) => visible === "true" ? 'block' : 'none'};
-  grid-area: content;
-  flex: 1;
-  padding: 3rem 0 2rem 0;
-  max-width: 65rem;
-
-  @media screen and (max-width: 1000px) {
-    width: 90%;
-    margin: 0 auto;
-    background-color: ${({ theme }) => theme.colors.white};
-    padding: 3rem 2rem;
-    position: relative;
-    top: -7rem;
-    border-radius: 1rem;
-    height: fit-content;
-    box-shadow: 0px 10px 20px -15px rgba(0,0,0,.5);
-  }
-`
-
-export const ContentForm = styled.div<{ visible: boolean }>`
-
 `
 
 export const Navigation = styled.nav`

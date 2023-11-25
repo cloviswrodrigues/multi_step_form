@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Container = styled.div`
   margin-bottom: 2.5rem;
@@ -7,27 +7,22 @@ export const Container = styled.div`
   font-family: ${({ theme }) => theme.font.ubuntu};
   color: ${({ theme }) => theme.colors.blueMarine};
 
-  label {
-    display: block;
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 1rem;
     font: inherit;
   }
 
-  input {
-    width: 100%;
-    padding: 1.5rem 1.8rem;
-    outline: none;
-    border: 1px solid ${({ theme }) => theme.colors.grayLight};
-    border-radius: .8rem;
+  label, span {
     font: inherit;
+  }
 
-    &:focus {
-      border-color: ${({ theme }) => theme.colors.bluePurplish};
-    }
-
-    &::placeholder {
-      color: ${({ theme }) => theme.colors.gray};
-    }
+  span {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: ${({ theme }) => theme.colors.redStrawberry}
   }
 
   @media screen and (max-width: 1000px) {
@@ -37,9 +32,34 @@ export const Container = styled.div`
     label {
       margin-bottom: .5rem;
     }
+  }
+`
 
-    input {
-      border-radius: .4rem;
+export const InputContainer = styled.input<{ hasError: boolean }>`
+  width: 100%;
+  padding: 1.5rem 1.8rem;
+  outline: none;
+  border: 1px solid ${({ theme }) => theme.colors.grayLight};
+  border-radius: .8rem;
+  font: inherit;
+
+  &:focus {
+    border-color: ${({ theme }) => theme.colors.bluePurplish};
+  }
+
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.gray};
+  }
+
+  ${({ hasError }) => {
+    if (hasError) {
+      return css`
+          border-color: ${({ theme }) => theme.colors.redStrawberry} !important;
+          `
     }
+  }}
+
+  @media screen and (max-width: 1000px) {
+      border-radius: .4rem;
   }
 `

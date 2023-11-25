@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-
 import { ThemeProvider } from 'styled-components';
+import { FormProvider, useForm } from 'react-hook-form';
 
 import GlobalStyle from '../../assets/styles/global'
 import theme from '../../assets/styles/theme';
@@ -11,58 +11,55 @@ import FormYourInfo from '../Forms/FormYourInfo';
 import SelectPlan from '../Forms/SelectPlan';
 import PickAddOns from '../Forms/PickAddOns';
 import Summary from '../Forms/Summary';
-import { typeTab } from '../../types/tab';
+//import ThankYou from '../ThankYou';
 
-import { Main, Container, Content, Pagination, Navigation } from './styles'
-import ThankYou from '../ThankYou';
+import { Main, Container, Pagination, Navigation } from './styles'
 
-const tabsAvailable: typeTab[] = [
-  { title: 'YOUR INFO', active: false },
-  { title: 'SELECT PLAN', active: false },
-  { title: 'ADD-ONS', active: false },
-  { title: 'SUMMARY', active: false },
-]
 
 function App() {
-  const [tabs, setTabs] = useState(tabsAvailable);
-  const [currentTab, setCurrentTab] = useState(1);
+  const [step, setStep] = useState(1);
+  const methods = useForm()
+  const steps = [
+    { name: 'YOUR INFO', component: <FormYourInfo /> },
+    { name: 'SELECT PLAN', component: <SelectPlan /> },
+    { name: 'ADD-ONS', component: <PickAddOns /> },
+    { name: 'SUMMARY', component: <Summary /> },
+  ]
 
   function previous() {
-    setCurrentTab(prevState => {
-      const tab = prevState - 1;
-      if (tab <= 0) {
+    setStep(prevState => {
+      const step = prevState - 1;
+      if (step <= 0) {
         return prevState;
       }
       return prevState - 1;
     });
   }
 
-  function next() {
-    setCurrentTab(prevState => {
-      const tab = prevState + 1;
-      if (tab > tabs.length) {
+  async function next() {
+    const validStep = await validateStep();
+    console.log('validStep: ', validStep)
+    if (!validStep) return
+
+    setStep(prevState => {
+      const step = prevState + 1;
+      if (step > steps.length) {
         return prevState;
       }
       return prevState + 1;
     });
   }
 
-  function updateTabNagivation(tab: number) {
-    setTabs(prevState => {
-      prevState.forEach(tab => tab.active = false);
-      const newState: typeTab[] = prevState;
-      const tabFound = prevState[tab - 1];
-      if (tabFound) {
-        tabFound.active = true;
-        newState[tab - 1] = tabFound;
-      }
-      return [...newState]
-    })
+  async function validateStep() {
+    const isValid = await methods.trigger();
+    console.log('isValid ===> ', isValid)
+    if (isValid) {
+      console.log('formulario valido');
+      return true
+    }
+    console.log('formulario invalido');
+    return false
   }
-
-  useEffect(() => {
-    updateTabNagivation(currentTab)
-  }, [currentTab])
 
   return (
     <ThemeProvider theme={theme}>
@@ -70,26 +67,17 @@ function App() {
       <Main>
         <Container>
           <Pagination>
-            <Tabs tabs={tabs} />
+            <Tabs names={steps.map(step => step.name)} indexTabActive={step - 1} />
           </Pagination>
-          <Content visible={currentTab == 1 ? "true" : "false"}>
-            <FormYourInfo />
-          </Content>
-          <Content visible={currentTab == 2 ? "true" : "false"}>
-            <SelectPlan />
-          </Content>
-          <Content visible={currentTab == 3 ? "true" : "false"}>
-            <PickAddOns />
-          </Content>
-          <Content visible={currentTab == 4 ? "true" : "false"}>
-            <Summary />
-          </Content>
-          <Content visible={currentTab == 5 ? "true" : "false"}>
-            <ThankYou />
-          </Content>
+          <FormProvider {...methods}>
+            <form>
+              {steps[step - 1].component}
+            </form>
+            { }
+          </FormProvider>
           <Navigation>
-            <ButtonBack visible={currentTab > 1 ? "true" : "false"} onClick={previous}>Go Back</ButtonBack>
-            {currentTab == tabs.length ? <Button type='submit' onClick={next}>Confirm</Button>
+            <ButtonBack visible={step > 1 ? "true" : "false"} onClick={previous}>Go Back</ButtonBack>
+            {step == steps.length ? <Button type='submit' onClick={next}>Confirm</Button>
               : <Button onClick={next}>Next Step</Button>}
           </Navigation>
         </Container>
