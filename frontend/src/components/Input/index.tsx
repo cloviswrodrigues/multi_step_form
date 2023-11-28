@@ -10,10 +10,10 @@ const Input = ({ label, hasError = false, errorMessage, ...props }: InputProps) 
   return (
     <Container>
       <div>
-        <label htmlFor="">{label}</label>
+        <label htmlFor={props.name}>{label}</label>
         {hasError && <span>{errorMessage}</span>}
       </div>
-      <InputContainer type="text" {...props} hasError={hasError} />
+      <InputContainer id={props.name} {...props} hasError={hasError} />
     </Container>
   )
 }
