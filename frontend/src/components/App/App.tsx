@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { FormProvider, useForm } from 'react-hook-form';
 
@@ -18,7 +18,11 @@ import { Main, Container, Pagination, Navigation } from './styles'
 
 function App() {
   const [step, setStep] = useState(1);
-  const methods = useForm()
+  const methods = useForm({
+    defaultValues: {
+      plan: 'arcade'
+    }
+  })
   const steps = [
     { name: 'YOUR INFO', component: <FormYourInfo /> },
     { name: 'SELECT PLAN', component: <SelectPlan /> },

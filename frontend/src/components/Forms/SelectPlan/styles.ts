@@ -50,6 +50,12 @@ export const LabelRadio = styled.div`
   }
 `
 
+export const Benefits = styled.small<{ visible: boolean }>`
+  opacity: ${({ visible }) => visible ? '1' : '0'};;
+  transition: all .5s;
+
+`
+
 export const CheckBoxGroup = styled.div`
   margin-top: 3rem;
 
