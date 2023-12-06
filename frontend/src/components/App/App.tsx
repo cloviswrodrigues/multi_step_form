@@ -10,7 +10,7 @@ import Button from '../Button';
 import FormYourInfo from '../Forms/FormYourInfo';
 import SelectPlan from '../Forms/SelectPlan';
 import PickAddOns from '../Forms/PickAddOns';
-import Summary from '../Forms/Summary';
+import Summary from '../Summary';
 //import ThankYou from '../ThankYou';
 
 import { Main, Container, Pagination, Navigation } from './styles'

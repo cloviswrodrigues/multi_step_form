@@ -1,9 +1,21 @@
-import Title from "../../Title"
-import SubTitle from "../../Subtitle"
+import { useFormContext } from "react-hook-form"
+
+import Title from "../Title"
+import SubTitle from "../Subtitle"
 import { CheckList, PlanCheck, CheckServices, Total } from "./styles"
 
 
 const Summary = () => {
+  const { watch } = useFormContext();
+  const [plan,
+    periodOption,
+    addonsOnlineService,
+    addonsLargerStorage,
+    addonsCustomizableProfile] = watch(['plan', 'periodOption', 'addonsOnlineService', 'addonsLargerStorage', 'addonsCustomizableProfile']);
+
+  console.log('test ==========> ', { plan, periodOption, addonsOnlineService, addonsLargerStorage, addonsCustomizableProfile })
+
+  const period = periodOption ? 'Yearly' : 'Monthly';
 
   return (
     <div>
@@ -12,7 +24,7 @@ const Summary = () => {
       <CheckList>
         <PlanCheck>
           <div>
-            <p>Arcade (Monthly)</p>
+            <p>{plan} ({period})</p>
             <button>Change</button>
           </div>
           <span>$9/mo</span>

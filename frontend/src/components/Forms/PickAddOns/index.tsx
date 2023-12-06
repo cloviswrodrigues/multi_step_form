@@ -9,7 +9,7 @@ const PickAddOns = () => {
       <Title>Pick add-ons</Title>
       <SubTitle>Add-ons help echance your gaming experience.</SubTitle>
       <Fields>
-        <InputCheckBox id="1" name="addons-1">
+        <InputCheckBox id="1" name="addonsOnlineService">
           <DescriptionCheckBox>
             <div>
               <p>Online Service</p>
@@ -18,7 +18,7 @@ const PickAddOns = () => {
             <small>+$1/mo</small>
           </DescriptionCheckBox>
         </InputCheckBox>
-        <InputCheckBox id="2" name="addons-2">
+        <InputCheckBox id="2" name="addonsLargerStorage">
           <DescriptionCheckBox>
             <div>
               <p>Larger storage</p>
@@ -27,7 +27,7 @@ const PickAddOns = () => {
             <small>+$2/mo</small>
           </DescriptionCheckBox>
         </InputCheckBox>
-        <InputCheckBox id="3" name="addons-3">
+        <InputCheckBox id="3" name="addonsCustomizableProfile">
           <DescriptionCheckBox>
             <div>
               <p>Customizable profile</p>
