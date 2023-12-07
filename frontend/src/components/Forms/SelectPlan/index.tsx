@@ -15,7 +15,7 @@ import ToggleSwitch from "../../ToggleSwitch"
 
 const SelectPlan = () => {
   const periodOption = 'periodOption';
-  const { watch } = useFormContext();
+  const { setValue, watch } = useFormContext();
   const watchPeriodOption = watch(periodOption);
   const periodSelected = watchPeriodOption ? 'yearly' : 'monthly';
 
@@ -41,6 +41,12 @@ const SelectPlan = () => {
   }
 
   const visibleBenefit = periodSelected === 'yearly' ? true : false;
+
+  function onChangeTogglePeriod(e) {
+    const checked = e.target.checked;
+    console.log('aaaaaaaaaaaaaaaaaaaaaaaaa ==> ', checked);
+    setValue(periodOption, checked ? 'yearly' : 'monthly');
+  }
 
   return (
     <Container>
@@ -86,7 +92,7 @@ const SelectPlan = () => {
           </InputRadio>
         </RadioButtonsGroup>
         <CheckBoxGroup>
-          <ToggleSwitch name={periodOption} />
+          <ToggleSwitch name={periodOption} onChange={onChangeTogglePeriod} />
         </CheckBoxGroup>
       </Fields>
     </Container>

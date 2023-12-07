@@ -3,16 +3,18 @@ import { useFormContext } from 'react-hook-form';
 
 type ToggleProps = {
   name: string,
+  onChange?: () => void,
 }
 
-const ToggleSwitch = ({ name }: ToggleProps) => {
-  const { register } = useFormContext();
+const ToggleSwitch = ({ name, onChange }: ToggleProps) => {
+  const { register, watch } = useFormContext();
+  const isChecked = watch(name);
 
   return (
     <Container>
       <span>Monthly</span>
       <Label>
-        <input type="checkbox" {...register(name)} />
+        <input type="checkbox" {...register(name, { onChange })} checked={isChecked === 'yearly'} />
         <span></span>
       </Label>
       <span>Yearly</span>

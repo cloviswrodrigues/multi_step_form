@@ -1,9 +1,17 @@
+import { useFormContext } from "react-hook-form"
 import Title from "../../Title"
 import SubTitle from "../../Subtitle"
 import { Fields, DescriptionCheckBox } from "./styles"
 import InputCheckBox from "../../InputCheckBox"
 
 const PickAddOns = () => {
+  const { watch } = useFormContext();
+  const periodOption = watch('periodOption');
+
+  console.log('@2 periodOption: ', periodOption);
+
+
+
   return (
     <div>
       <Title>Pick add-ons</Title>
