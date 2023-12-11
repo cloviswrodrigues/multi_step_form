@@ -17,7 +17,7 @@ const SelectPlan = () => {
   const periodOption = 'periodOption';
   const { setValue, watch } = useFormContext();
   const watchPeriodOption = watch(periodOption);
-  const periodSelected = watchPeriodOption ? 'yearly' : 'monthly';
+  const periodSelected = watchPeriodOption === 'yearly' ? 'yearly' : 'monthly';
 
   const plan = {
     arcade: 'arcade',
@@ -44,7 +44,6 @@ const SelectPlan = () => {
 
   function onChangeTogglePeriod(e) {
     const checked = e.target.checked;
-    console.log('aaaaaaaaaaaaaaaaaaaaaaaaa ==> ', checked);
     setValue(periodOption, checked ? 'yearly' : 'monthly');
   }
 
