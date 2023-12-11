@@ -3,7 +3,7 @@ import { useFormContext } from 'react-hook-form';
 
 type ToggleProps = {
   name: string,
-  onChange?: () => void,
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void,
 }
 
 const ToggleSwitch = ({ name, onChange }: ToggleProps) => {

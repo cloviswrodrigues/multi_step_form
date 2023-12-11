@@ -42,7 +42,7 @@ const SelectPlan = () => {
 
   const visibleBenefit = periodSelected === 'yearly' ? true : false;
 
-  function onChangeTogglePeriod(e) {
+  function onChangeTogglePeriod(e: React.ChangeEvent<HTMLInputElement>) {
     const checked = e.target.checked;
     setValue(periodOption, checked ? 'yearly' : 'monthly');
   }
