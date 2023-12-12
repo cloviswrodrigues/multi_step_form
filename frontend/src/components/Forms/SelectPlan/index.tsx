@@ -1,5 +1,6 @@
 import { useFormContext } from "react-hook-form"
 
+import { periodOption } from '../../../types';
 import Title from "../../Title"
 import SubTitle from "../../Subtitle"
 import {
@@ -16,8 +17,7 @@ import ToggleSwitch from "../../ToggleSwitch"
 const SelectPlan = () => {
   const periodOption = 'periodOption';
   const { setValue, watch } = useFormContext();
-  const watchPeriodOption = watch(periodOption);
-  const periodSelected = watchPeriodOption === 'yearly' ? 'yearly' : 'monthly';
+  const periodSelected: periodOption = watch(periodOption);
 
   const plan = {
     arcade: 'arcade',

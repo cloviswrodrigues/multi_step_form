@@ -1,4 +1,6 @@
 import { useFormContext } from "react-hook-form"
+
+import { periodOption } from "../../../types"
 import Title from "../../Title"
 import SubTitle from "../../Subtitle"
 import { Fields, DescriptionCheckBox } from "./styles"
@@ -6,44 +8,49 @@ import InputCheckBox from "../../InputCheckBox"
 
 const PickAddOns = () => {
   const { watch } = useFormContext();
-  const periodOption = watch('periodOption');
+  const periodOption: periodOption = watch('periodOption');
 
-  console.log('@2 periodOption: ', periodOption);
-
-
+  const services = [
+    {
+      name: 'addonsOnlineService',
+      title: 'Online Service',
+      description: 'Access to multiplayer games',
+      monthly: '+$1/mo',
+      yearly: '+$10/yr'
+    },
+    {
+      name: 'addonsLargerStorage',
+      title: 'Larger storage',
+      description: 'Extra 1TB of cloud save',
+      monthly: '+$2/mo',
+      yearly: '+$20/yr'
+    },
+    {
+      name: 'addonsCustomizableProfile',
+      title: 'Customizable profile',
+      description: 'Custom theme on your profile',
+      monthly: '+$2/mo',
+      yearly: '+$20/yr'
+    }
+  ]
 
   return (
     <div>
       <Title>Pick add-ons</Title>
       <SubTitle>Add-ons help echance your gaming experience.</SubTitle>
       <Fields>
-        <InputCheckBox id="1" name="addonsOnlineService">
-          <DescriptionCheckBox>
-            <div>
-              <p>Online Service</p>
-              <span>Access to multiplayer games</span>
-            </div>
-            <small>+$1/mo</small>
-          </DescriptionCheckBox>
-        </InputCheckBox>
-        <InputCheckBox id="2" name="addonsLargerStorage">
-          <DescriptionCheckBox>
-            <div>
-              <p>Larger storage</p>
-              <span>Extra 1TB of cloud save</span>
-            </div>
-            <small>+$2/mo</small>
-          </DescriptionCheckBox>
-        </InputCheckBox>
-        <InputCheckBox id="3" name="addonsCustomizableProfile">
-          <DescriptionCheckBox>
-            <div>
-              <p>Customizable profile</p>
-              <span>Custom theme on your profile</span>
-            </div>
-            <small>+$2/mo</small>
-          </DescriptionCheckBox>
-        </InputCheckBox>
+        {services.map((service, index) => (
+          <InputCheckBox key={(index + 1).toString()} id={(index + 1).toString()} name={service.name}>
+            <DescriptionCheckBox>
+              <div>
+                <p>{service.title}</p>
+                <span>{service.description}</span>
+              </div>
+              <small>{service[periodOption]}</small>
+            </DescriptionCheckBox>
+          </InputCheckBox>
+        ))}
+
       </Fields>
     </div>
   )

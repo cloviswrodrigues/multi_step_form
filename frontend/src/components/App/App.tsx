@@ -20,7 +20,8 @@ function App() {
   const [step, setStep] = useState(1);
   const methods = useForm({
     defaultValues: {
-      plan: 'arcade'
+      plan: 'arcade',
+      periodOption: 'monthly',
     }
   })
   const steps = [
