@@ -21,12 +21,6 @@ export const Container = styled.div`
 `
 
 export const Label = styled.label`
-  input {
-    visibility: hidden;
-    width: 0;
-    height: 0;
-  }
-
   input:checked + span::before {
     transform: translateX(18px);
   }

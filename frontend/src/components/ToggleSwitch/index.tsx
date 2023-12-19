@@ -7,14 +7,13 @@ type ToggleProps = {
 }
 
 const ToggleSwitch = ({ name, onChange }: ToggleProps) => {
-  const { register, watch } = useFormContext();
-  const isChecked = watch(name);
+  const { register } = useFormContext();
 
   return (
     <Container>
       <span>Monthly</span>
       <Label>
-        <input type="checkbox" {...register(name, { onChange })} checked={isChecked === 'yearly'} />
+        <input hidden type="checkbox" {...register(name, { onChange })} />
         <span></span>
       </Label>
       <span>Yearly</span>

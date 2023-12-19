@@ -91,7 +91,7 @@ const SelectPlan = () => {
           </InputRadio>
         </RadioButtonsGroup>
         <CheckBoxGroup>
-          <ToggleSwitch name={periodOption} onChange={onChangeTogglePeriod} />
+          <ToggleSwitch name={'togglePeriod'} onChange={onChangeTogglePeriod} />
         </CheckBoxGroup>
       </Fields>
     </Container>
