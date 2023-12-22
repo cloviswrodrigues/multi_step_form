@@ -22,6 +22,7 @@ function App() {
     defaultValues: {
       plan: 'arcade',
       periodOption: 'monthly',
+      pickAddOns: []
     }
   })
   const steps = [

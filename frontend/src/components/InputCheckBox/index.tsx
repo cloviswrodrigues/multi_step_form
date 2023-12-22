@@ -5,14 +5,16 @@ import { Container } from "./styles"
 type InputCheckBoxProps = {
   id: string,
   name: string,
-  children: React.ReactNode
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void,
+  children: React.ReactNode,
+  props?: React.InputHTMLAttributes<HTMLInputElement>;
 }
 
-const InputCheckBox = ({ id, name, children }: InputCheckBoxProps) => {
+const InputCheckBox = ({ id, name, onChange, children, ...props }: InputCheckBoxProps) => {
   const { register } = useFormContext();
   return (
     <Container>
-      <input type="checkbox" hidden id={id} {...register(name)} />
+      <input type="checkbox" hidden id={id} {...register(name, { onChange })} {...props} />
       <label htmlFor={id}>
         <span></span>
         <div>{children}</div>

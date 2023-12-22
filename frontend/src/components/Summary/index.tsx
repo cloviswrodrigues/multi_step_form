@@ -3,6 +3,7 @@ import { useFormContext } from "react-hook-form"
 import Title from "../Title"
 import SubTitle from "../Subtitle"
 import { CheckList, PlanCheck, CheckServices, Total } from "./styles"
+import { capitalizeFirstLetter } from '../../utils/strings'
 
 
 const Summary = () => {
@@ -11,11 +12,15 @@ const Summary = () => {
     periodOption,
     addonsOnlineService,
     addonsLargerStorage,
-    addonsCustomizableProfile] = watch(['plan', 'periodOption', 'addonsOnlineService', 'addonsLargerStorage', 'addonsCustomizableProfile']);
+    addonsCustomizableProfile,
+    pickAddOns] = watch(['plan',
+      'periodOption',
+      'addonsOnlineService',
+      'addonsLargerStorage',
+      'addonsCustomizableProfile',
+      'pickAddOns']);
 
-  console.log('test ==========> ', { plan, periodOption, addonsOnlineService, addonsLargerStorage, addonsCustomizableProfile })
-
-  const period = periodOption ? 'Yearly' : 'Monthly';
+  console.log('test ==========> ', { plan, periodOption, addonsOnlineService, addonsLargerStorage, addonsCustomizableProfile, pickAddOns })
 
   return (
     <div>
@@ -24,7 +29,7 @@ const Summary = () => {
       <CheckList>
         <PlanCheck>
           <div>
-            <p>{plan} ({period})</p>
+            <p>{capitalizeFirstLetter(plan)} ({capitalizeFirstLetter(periodOption)})</p>
             <button>Change</button>
           </div>
           <span>$9/mo</span>
