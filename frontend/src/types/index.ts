@@ -1,10 +1,21 @@
-export type MONTHLY = 'monthly'
+export enum Period {
+  Monthly = 'monthly',
+  Yearly = 'yearly'
+}
 
-export type YEARLY = 'yearly'
+export type periodOption = Period.Monthly | Period.Yearly
 
-export type periodOption = MONTHLY | YEARLY
+export enum Plan {
+  Arcade = 'arcade',
+  Advanced = 'advanced',
+  Pro = 'pro'
+}
 
 export type pickAddOns = {
+  name: string,
   title: string,
-  value: string,
+  description: string,
+  [Period.Monthly]: number,
+  [Period.Yearly]: number,
+  checked: boolean
 }

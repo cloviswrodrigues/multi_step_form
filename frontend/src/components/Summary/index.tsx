@@ -1,27 +1,52 @@
+import { useMemo } from "react";
+
 import { useFormContext } from "react-hook-form"
+import { Period, pickAddOns } from '../../types/index';
 
 import Title from "../Title"
 import SubTitle from "../Subtitle"
 import { CheckList, PlanCheck, CheckServices, Total } from "./styles"
-import { capitalizeFirstLetter } from '../../utils/strings'
+import { capitalizeFirstLetter, formatCurrencyPeriod } from '../../utils'
 
 
 const Summary = () => {
-  const { watch } = useFormContext();
+  const { watch, setValue } = useFormContext();
   const [plan,
-    periodOption,
+    planValue,
     addonsOnlineService,
     addonsLargerStorage,
     addonsCustomizableProfile,
     pickAddOns] = watch(['plan',
-      'periodOption',
+      'planValue',
       'addonsOnlineService',
       'addonsLargerStorage',
       'addonsCustomizableProfile',
       'pickAddOns']);
+  const periodOption: Period = watch('periodOption');
 
-  console.log('test ==========> ', { plan, periodOption, addonsOnlineService, addonsLargerStorage, addonsCustomizableProfile, pickAddOns })
+  console.log('test ==========> ', { plan, planValue, periodOption, addonsOnlineService, addonsLargerStorage, addonsCustomizableProfile, pickAddOns })
 
+  const changedPeriod = () => {
+    if (periodOption === Period.Yearly) {
+      setValue('togglePeriod', false)
+      setValue('periodOption', Period.Monthly)
+    } else {
+      setValue('togglePeriod', true)
+      setValue('periodOption', Period.Yearly)
+    }
+  }
+
+  const total = useMemo(() => {
+    console.log('planValue[periodOption] ', planValue[periodOption])
+    const totalPickAddOns = pickAddOns.reduce((acc: number, item: pickAddOns) => {
+      if (item.checked) return acc + item[periodOption]
+      return acc;
+    }, 0);
+    console.log('testCalculo ', totalPickAddOns)
+    const calculateValue = planValue[periodOption] + totalPickAddOns
+
+    return formatCurrencyPeriod(calculateValue, periodOption)
+  }, [planValue, periodOption])
   return (
     <div>
       <Title>Finishing up</Title>
@@ -30,25 +55,28 @@ const Summary = () => {
         <PlanCheck>
           <div>
             <p>{capitalizeFirstLetter(plan)} ({capitalizeFirstLetter(periodOption)})</p>
-            <button>Change</button>
+            <button type='button' onClick={changedPeriod}>Change</button>
           </div>
-          <span>$9/mo</span>
+          <span>{formatCurrencyPeriod(planValue[periodOption], periodOption)}</span>
         </PlanCheck>
         <hr />
         <CheckServices>
-          <div>
-            <p>Online service</p>
-            <span>+$1/mo</span>
-          </div>
-          <div>
-            <p>Larger storage</p>
-            <span>+$2/mo</span>
-          </div>
+          {pickAddOns.map((item: pickAddOns) => {
+            if (item.checked) {
+              return (
+                <div>
+                  <p>{item.title}</p>
+                  <span>{formatCurrencyPeriod(item[periodOption], periodOption)}</span>
+                </div>
+              )
+            }
+            return null
+          })}
         </CheckServices>
       </CheckList>
       <Total>
-        <p>Total (per month)</p>
-        <span>+$12/mo</span>
+        <p>Total ({periodOption === Period.Yearly ? 'per year' : 'per month'})</p>
+        <span>{total}</span>
       </Total>
     </div>
   )

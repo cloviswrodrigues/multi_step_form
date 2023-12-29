@@ -22,7 +22,32 @@ function App() {
     defaultValues: {
       plan: 'arcade',
       periodOption: 'monthly',
-      pickAddOns: []
+      pickAddOns: [
+        {
+          name: 'addonsOnlineService',
+          title: 'Online service',
+          description: 'Access to multiplayer games',
+          monthly: 1,
+          yearly: 10,
+          checked: false,
+        },
+        {
+          name: 'addonsLargerStorage',
+          title: 'Larger storage',
+          description: 'Extra 1TB of cloud save',
+          monthly: 2,
+          yearly: 20,
+          checked: false,
+        },
+        {
+          name: 'addonsCustomizableProfile',
+          title: 'Customizable profile',
+          description: 'Custom theme on your profile',
+          monthly: 2,
+          yearly: 20,
+          checked: false,
+        }
+      ]
     }
   })
   const steps = [
