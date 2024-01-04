@@ -7,8 +7,6 @@ export const Main = styled.main`
   width: 100%;
   height: 100%;
   background-color: ${({ theme }) => theme.colors.grayMagnolia};
-
-
 `
 
 export const Container = styled.div`
@@ -28,6 +26,7 @@ export const Container = styled.div`
   border-radius: 1.5rem;
   padding: 1.5rem;
   padding-right: 8rem;
+  box-shadow: 14px 25px 40px -30px rgba(0,0,0,0.2);
 
   form {
     padding-top: 3rem;
