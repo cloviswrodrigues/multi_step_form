@@ -32,6 +32,10 @@ export const Container = styled.div`
     label {
       margin-bottom: .5rem;
     }
+
+    div {
+      margin-bottom: 0;
+    }
   }
 `
 

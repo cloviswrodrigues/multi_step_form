@@ -14,4 +14,8 @@ export const InputGroup = styled.div`
     margin-top: 6rem;
     float: right;
   }
+
+  @media screen and (max-width: 1000px) {
+    margin-top: 2.5rem;
+  }
 `
