@@ -19,3 +19,19 @@ export type pickAddOns = {
   [Period.Yearly]: number,
   checked: boolean
 }
+
+export type FormValues = {
+  plan: Plan;
+  periodOption: string;
+  pickAddOns: {
+    name: string;
+    title: string;
+    description: string;
+    monthly: number;
+    yearly: number;
+    checked: boolean;
+  }[];
+  addonsCustomizableProfile: boolean,
+  addonsLargerStorage: boolean,
+  addonsOnlineService: boolean,
+}

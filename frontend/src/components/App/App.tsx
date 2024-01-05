@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { FormProvider, useForm } from 'react-hook-form';
 
+import { FormValues, Plan } from '../../types/index'
 import GlobalStyle from '../../assets/styles/global'
 import theme from '../../assets/styles/theme';
 import Tabs from '../Tabs';
@@ -13,14 +14,15 @@ import PickAddOns from '../Forms/PickAddOns';
 import Summary from '../Summary';
 //import ThankYou from '../ThankYou';
 
-import { Main, Container, Pagination, Navigation } from './styles'
+import { Main, Container, Pagination, Form, Navigation } from './styles'
+
 
 
 function App() {
   const [step, setStep] = useState(1);
-  const methods = useForm({
+  const methods = useForm<FormValues>({
     defaultValues: {
-      plan: 'arcade',
+      plan: Plan.Arcade,
       periodOption: 'monthly',
       pickAddOns: [
         {
@@ -92,6 +94,10 @@ function App() {
     return false
   }
 
+  async function onSubmit(data: FormValues) {
+    console.log('data==========>', data)
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
@@ -101,16 +107,15 @@ function App() {
             <Tabs names={steps.map(step => step.name)} indexTabActive={step - 1} />
           </Pagination>
           <FormProvider {...methods}>
-            <form>
+            <Form onSubmit={methods.handleSubmit(onSubmit)}>
               {steps[step - 1].component}
-            </form>
-            { }
+              <Navigation>
+                <ButtonBack visible={step > 1 ? "true" : "false"} onClick={previous}>Go Back</ButtonBack>
+                {step == steps.length ? <Button type='submit' onClick={next}>Confirm</Button>
+                  : <Button type='button' onClick={next}>Next Step</Button>}
+              </Navigation>
+            </Form>
           </FormProvider>
-          <Navigation>
-            <ButtonBack visible={step > 1 ? "true" : "false"} onClick={previous}>Go Back</ButtonBack>
-            {step == steps.length ? <Button type='submit' onClick={next}>Confirm</Button>
-              : <Button onClick={next}>Next Step</Button>}
-          </Navigation>
         </Container>
       </Main>
     </ThemeProvider>
