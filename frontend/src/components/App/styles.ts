@@ -60,6 +60,7 @@ export const Form = styled.form`
   flex-direction: column;
   justify-content: space-between;
   margin-top: 3rem;
+  margin-bottom: 2rem;
 
   @media screen and (max-width: 1000px) {
     margin-top: 0;
@@ -72,6 +73,7 @@ export const Form = styled.form`
       background-color: ${({ theme }) => theme.colors.white};
       padding: 3rem 2rem;
       border-radius: 1rem;
+      box-shadow: 14px 25px 40px -30px rgba(0,0,0,0.2);
     }
   }
 `
