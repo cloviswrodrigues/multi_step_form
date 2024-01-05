@@ -1,4 +1,4 @@
-import { Container, Label } from './styles';
+import { Container, Label, Option } from './styles';
 import { useFormContext } from 'react-hook-form';
 
 type ToggleProps = {
@@ -7,16 +7,17 @@ type ToggleProps = {
 }
 
 const ToggleSwitch = ({ name, onChange }: ToggleProps) => {
-  const { register } = useFormContext();
+  const { register, watch } = useFormContext();
+  const period = watch(name);
 
   return (
     <Container>
-      <span>Monthly</span>
+      <Option active={!period}>Monthly</Option>
       <Label>
         <input hidden type="checkbox" {...register(name, { onChange })} />
         <span></span>
       </Label>
-      <span>Yearly</span>
+      <Option active={period}>Yearly</Option>
     </Container>
   )
 }

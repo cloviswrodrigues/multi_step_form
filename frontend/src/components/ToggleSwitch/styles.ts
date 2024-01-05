@@ -10,14 +10,6 @@ export const Container = styled.div`
   padding: 1.5rem;
   background-color: ${({ theme }) => theme.colors.grayAlabaster};
   border-radius: .5rem;
-
-  & > span {
-    font-size: 1.4rem;
-    font-weight: 500;
-    color: ${({ theme }) => theme.colors.gray};
-  }
-
-
 `
 
 export const Label = styled.label`
@@ -44,6 +36,12 @@ export const Label = styled.label`
     }
   }
 
+`
+
+export const Option = styled.span<{ active: boolean }>`
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: ${({ theme, active }) => active ? theme.colors.blueMarine : theme.colors.gray};
 `
 
 
