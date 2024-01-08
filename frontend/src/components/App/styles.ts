@@ -55,27 +55,30 @@ export const Pagination = styled.div`
   }
 `
 
+export const Content = styled.div`
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  grid-area: content;
+
+  @media screen and (max-width: 1000px) {
+    background-color: ${({ theme }) => theme.colors.white};
+    max-width: 90%;
+    height: min-content;
+    margin: 0 auto;
+    position: relative;
+    top: -7rem;
+    border-radius: 1rem;
+    padding: 3rem 2rem;
+    box-shadow: 14px 25px 40px -30px rgba(0,0,0,0.2);
+  }
+
+`
+
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
-
-  @media screen and (max-width: 1000px) {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding: 0 2rem;
-    position: relative;
-    top: -7rem;
-
-    > div {
-      background-color: ${({ theme }) => theme.colors.white};
-      padding: 3rem 2rem;
-      border-radius: 1rem;
-      box-shadow: 14px 25px 40px -30px rgba(0,0,0,0.2);
-    }
-  }
+  height: 100%;
 `
 
 

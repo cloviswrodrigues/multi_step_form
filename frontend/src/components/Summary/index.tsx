@@ -13,18 +13,10 @@ const Summary = () => {
   const { watch, setValue } = useFormContext();
   const [plan,
     planValue,
-    addonsOnlineService,
-    addonsLargerStorage,
-    addonsCustomizableProfile,
     pickAddOns] = watch(['plan',
       'planValue',
-      'addonsOnlineService',
-      'addonsLargerStorage',
-      'addonsCustomizableProfile',
       'pickAddOns']);
   const periodOption: Period = watch('periodOption');
-
-  console.log('test ==========> ', { plan, planValue, periodOption, addonsOnlineService, addonsLargerStorage, addonsCustomizableProfile, pickAddOns })
 
   const changedPeriod = () => {
     if (periodOption === Period.Yearly) {
@@ -37,12 +29,10 @@ const Summary = () => {
   }
 
   const total = useMemo(() => {
-    console.log('planValue[periodOption] ', planValue[periodOption])
     const totalPickAddOns = pickAddOns.reduce((acc: number, item: pickAddOns) => {
       if (item.checked) return acc + item[periodOption]
       return acc;
     }, 0);
-    console.log('testCalculo ', totalPickAddOns)
     const calculateValue = planValue[periodOption] + totalPickAddOns
 
     return formatCurrencyPeriod(calculateValue, periodOption)

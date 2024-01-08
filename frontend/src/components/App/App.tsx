@@ -12,14 +12,15 @@ import FormYourInfo from '../Forms/FormYourInfo';
 import SelectPlan from '../Forms/SelectPlan';
 import PickAddOns from '../Forms/PickAddOns';
 import Summary from '../Summary';
-//import ThankYou from '../ThankYou';
+import ThankYou from '../ThankYou';
 
-import { Main, Container, Pagination, Form, Navigation } from './styles'
+import { Main, Container, Pagination, Content, Form, Navigation } from './styles'
 
 
 
 function App() {
   const [step, setStep] = useState(1);
+  const [submmitedForm, setSubmmitedForm] = useState(false);
   const methods = useForm<FormValues>({
     defaultValues: {
       plan: Plan.Arcade,
@@ -69,9 +70,10 @@ function App() {
     });
   }
 
-  async function next() {
+  async function next(event: React.MouseEvent) {
+    event.preventDefault();
+
     const validStep = await validateStep();
-    console.log('validStep: ', validStep)
     if (!validStep) return
 
     setStep(prevState => {
@@ -85,17 +87,14 @@ function App() {
 
   async function validateStep() {
     const isValid = await methods.trigger();
-    console.log('isValid ===> ', isValid)
     if (isValid) {
-      console.log('formulario valido');
       return true
     }
-    console.log('formulario invalido');
     return false
   }
 
-  async function onSubmit(data: FormValues) {
-    console.log('data==========>', data)
+  async function onSubmit() {
+    setSubmmitedForm(true)
   }
 
   return (
@@ -106,16 +105,22 @@ function App() {
           <Pagination>
             <Tabs names={steps.map(step => step.name)} indexTabActive={step - 1} />
           </Pagination>
-          <FormProvider {...methods}>
-            <Form onSubmit={methods.handleSubmit(onSubmit)}>
-              {steps[step - 1].component}
-              <Navigation>
-                <ButtonBack visible={step > 1 ? "true" : "false"} onClick={previous}>Go Back</ButtonBack>
-                {step == steps.length ? <Button type='submit' onClick={next}>Confirm</Button>
-                  : <Button type='button' onClick={next}>Next Step</Button>}
-              </Navigation>
-            </Form>
-          </FormProvider>
+          <Content>
+            {submmitedForm ?
+              <ThankYou />
+              :
+              <FormProvider {...methods}>
+                <Form onSubmit={methods.handleSubmit(onSubmit)}>
+                  {steps[step - 1].component}
+                  <Navigation>
+                    <ButtonBack type='button' visible={step > 1 ? "true" : "false"} onClick={previous}>Go Back</ButtonBack>
+                    {step == steps.length ? <Button type='submit'>Confirm</Button>
+                      : <Button type='button' onClick={(e) => next(e)}>Next Step!</Button>}
+                  </Navigation>
+                </Form>
+              </FormProvider>
+            }
+          </Content>
         </Container>
       </Main>
     </ThemeProvider>

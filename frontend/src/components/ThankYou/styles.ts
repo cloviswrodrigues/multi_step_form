@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  margin-top: 12rem;
   text-align: center;
 
   img {
@@ -14,7 +13,7 @@ export const Container = styled.div`
   }
 
   @media screen and (max-width: 1000px) {
-    margin-top: 5rem;
+    margin: 5rem 0;
 
     img {
       width: 6rem;
